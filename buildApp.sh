@@ -1,2 +1,2 @@
 #!/bin/bash
-rm -rf /opt/app/*
+echo teste >> /root/teste.txt

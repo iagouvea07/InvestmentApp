@@ -4,5 +4,5 @@ files:
   - source: /
     destination: /opt/app/
 BeforeInstall:
-  - run: echo teste >> /root/teste.txt
+  - location: echo teste >> /root/teste.txt
     runas: root
