@@ -5,5 +5,5 @@ files:
     destination: /opt/app/
 hooks:
   BeforeInstall:
-    - location: buildApp.sh
+    - run: buildApp.sh
       runas: root
