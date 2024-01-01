@@ -53,6 +53,16 @@ createRoute("/dividends", ["stock_id", "value", "date", "user_id"], queries.INSE
             req.body.user_id];
 });
 
+createRoute("/assets", ["stock_id", "amount", "user_id"], queries.INSERT_ASSETS, (req) =>{
+    return [req.body.stock_id, 
+            req.body.amount, 
+            req.body.user_id];
+});
+
+createRoute("/sessions", ["token"], queries.INSERT_SESSIONS, (req) =>{
+    return [req.body.token];
+});
+
 createRoute("/types", ["name"], queries.INSERT_TYPES, (req) =>{
     return [req.body.name];
 });

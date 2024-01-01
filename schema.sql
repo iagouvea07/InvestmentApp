@@ -37,7 +37,7 @@ CREATE TABLE sessions (
     token varchar(200)
 );
 
-CREATE TABLE valid (
+CREATE TABLE types (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(20) NOT NULL
 );
