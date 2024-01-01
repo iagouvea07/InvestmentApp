@@ -1,0 +1,9 @@
+version: 2.0
+os: linux
+files:
+  - source: /
+  - destination: /opt/
+hooks:
+  BeforeInstall:
+    - location: buildApp.sh
+      runas: root
