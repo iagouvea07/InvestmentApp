@@ -3,6 +3,7 @@ os: linux
 files:
   - source: /
     destination: /opt/app/
-BeforeInstall:
-  - location: buildApp.sh
-    runas: root
+hooks:
+  BeforeInstall:
+    - location: buildApp.sh
+      runas: root
