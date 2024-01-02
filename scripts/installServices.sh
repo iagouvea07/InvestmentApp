@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apt install mariadb-client mariadb-server nodejs npm
+apt install mariadb-client mariadb-server nodejs npm -y
 
 npm install
 
