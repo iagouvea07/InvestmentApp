@@ -1,8 +1,8 @@
 #!/bin/bash
 
 function backupAPI(){
-    find /backup -type f -mtime +1 -exec rm {} \;
-    tar -czvf api_$(date +'%d-%m-%Y_%H-%M-%S').tar.gz /opt/app/*
+    find /backup -type f -mtime +2 -exec rm {} \;
+    tar -czvf /backup/api_$(date +'%d-%m-%Y_%H-%M-%S').tar.gz /opt/app/*
 }
 
 if [ -d /backup ]; then
