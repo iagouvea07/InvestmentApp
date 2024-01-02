@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router();
 const db = require('../db/db.js');
 const dotenv = require('dotenv')
-const queries = require('../db/queries.js')
+const queries = require('../db/insert.js')
 
 dotenv.config()
 

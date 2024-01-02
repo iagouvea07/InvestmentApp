@@ -1,12 +1,13 @@
 const express = require('express')
-const router = express.Router();
-const db = require('../db/db.js');
+const router = express.Router()
+const db = require('../db/db.js')
 const dotenv = require('dotenv')
+const queries = require('../db/select.js')
 
 dotenv.config()
 
 router.get("/", (req, res) => {
-    res.status(200).json({response: "route home"})
+    res.status(200).json({response: "home users"})
 
 })
 
@@ -31,8 +32,12 @@ router.get("/assets", (req, res) => {
 })
 
 router.get("/sessions", (req, res) => {
-    res.status(200).json({response: "route sessions"})
-
+    db.query(queries.SELECT_SESSIONS, (err, result) => {
+        res.status(200).json({
+            response: "route users",
+            params: result
+        })
+    })
 })
 
 module.exports = router;
