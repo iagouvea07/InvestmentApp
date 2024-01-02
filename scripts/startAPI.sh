@@ -1,3 +1,3 @@
 #!/bin/bash
 
-node /opt/app/app.js
+pm2 start /opt/app/app.js
