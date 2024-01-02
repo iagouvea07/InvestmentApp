@@ -5,5 +5,8 @@ files:
     destination: /opt/app/
 hooks:
   BeforeInstall:
-    - run: buildApp.sh
+    - location: scripts/backupAPI.sh
+      runas: root
+  AfterInstall:
+    - location: scripts/installServices.sh
       runas: root
