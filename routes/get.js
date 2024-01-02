@@ -22,8 +22,21 @@ router.get("/stocks", (req, res) => {
 })
 
 router.get("/dividends", (req, res) => {
-    res.status(200).json({response: "route dividends"})
+    db.query(queries.SELECT_DIVIDENDS, (err, result) => {
+        res.status(200).json({
+            response: "route users",
+            params: result
+        })
+    })
+})
 
+router.get("/incomes", (req, res) => {
+    db.query(queries.SELECT_INCOMES, (err, result) => {
+        res.status(200).json({
+            response: "route users",
+            params: result
+        })
+    })
 })
 
 router.get("/assets", (req, res) => {
