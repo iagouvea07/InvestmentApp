@@ -3,6 +3,7 @@ const router = express.Router();
 const db = require('../db/db.js');
 const dotenv = require('dotenv')
 const queries = require('../db/insert.js')
+const selectQuerires = require('../db/insert.js')
 dotenv.config()
 
 const handleDatabaseError = (err, res) => {
@@ -66,6 +67,21 @@ createRoute("/types", ["name"], queries.INSERT_TYPES, (req) =>{
     return [req.body.name];
 });
 
-
+router.get('/auth', (req, res) => {
+    db.query(selectQueries.SELECT_AUTH, [req.body.user, req.body.password], (err, result) => {
+            if(req.body.user && req.body.password){
+                res.status(200).json({
+                    response: "route users",
+                    params: result
+                })
+            }
+            else{
+                console.log(req.body.password)
+                res.status(400).json({
+                    error: "authentication error"
+                })
+            }
+    })
+})
 
 module.exports = router;
