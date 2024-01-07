@@ -3,7 +3,6 @@ const router = express.Router();
 const db = require('../db/db.js');
 const dotenv = require('dotenv')
 const queries = require('../db/insert.js')
-
 dotenv.config()
 
 const handleDatabaseError = (err, res) => {
@@ -66,5 +65,7 @@ createRoute("/sessions", ["token"], queries.INSERT_SESSIONS, (req) =>{
 createRoute("/types", ["name"], queries.INSERT_TYPES, (req) =>{
     return [req.body.name];
 });
+
+
 
 module.exports = router;

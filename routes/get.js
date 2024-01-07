@@ -12,7 +12,12 @@ router.get("/", (req, res) => {
 })
 
 router.get("/users", (req, res) => {
-    res.status(200).json({response: "route users"})
+    db.query(queries.SELECT_USERS, (err, result) => {
+        res.status(200).json({
+            response: "route users",
+            params: result
+        })
+    })
 
 })
 
@@ -50,6 +55,23 @@ router.get("/sessions", (req, res) => {
             response: "route users",
             params: result
         })
+    })
+})
+
+router.get('/auth', (req, res) => {
+    db.query(queries.SELECT_AUTH, [req.body.user, req.body.password], (err, result) => {
+            if(req.body.user && req.body.password){
+                res.status(200).json({
+                    response: "route users",
+                    params: result
+                })
+            }
+            else{
+                console.log(req.body.password)
+                res.status(400).json({
+                    error: "authentication error"
+                })
+            }
     })
 })
 

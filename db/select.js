@@ -7,8 +7,15 @@ const SELECT_INCOMES = `SELECT s.ticker, s.name, ROUND((a.amount * d.value), 2) 
 
 const SELECT_DIVIDENDS = `SELECT * FROM dividends;`
 
+const SELECT_USERS = `SELECT * FROM users;`
+
+const SELECT_AUTH = `SELECT * FROM users
+                     WHERE user = ? AND password = ?;`
+
 module.exports = {
                     SELECT_SESSIONS,
                     SELECT_INCOMES,
-                    SELECT_DIVIDENDS
+                    SELECT_DIVIDENDS,
+                    SELECT_USERS,
+                    SELECT_AUTH
 }
