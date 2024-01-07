@@ -10,7 +10,7 @@ const SELECT_DIVIDENDS = `SELECT * FROM dividends;`
 const SELECT_USERS = `SELECT * FROM users;`
 
 const SELECT_AUTH = `SELECT * FROM users
-                     WHERE user = ? AND password = ?;`
+                     WHERE user = ? AND password = ? AND valid_id = 1;`
 
 module.exports = {
                     SELECT_SESSIONS,
